@@ -1,10 +1,10 @@
-
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pede Ideias 💡</title>
-<link href="https://fonts.googleapis.com" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
 <style>
     :root {
         --primary-color: #ffeb3b; 
@@ -62,9 +62,18 @@
     p.subtitle {
         text-align: center;
         color: #94a3b8;
-        margin-bottom: 35px;
+        margin-bottom: 20px;
         font-size: 1rem;
         line-height: 1.5;
+    }
+
+    p.info {
+        text-align: center;
+        color: #fff;
+        margin-bottom: 35px;
+        font-size: 0.9rem;
+        line-height: 1.4;
+        opacity: 0.9;
     }
 
     form {
@@ -133,6 +142,25 @@
         top: 10%;
         left: 10%;
     }
+
+    .discord-btn {
+        display: block;
+        text-align: center;
+        padding: 16px;
+        border-radius: 16px;
+        background: #5865F2;
+        color: white;
+        font-size: 1rem;
+        font-weight: 700;
+        text-decoration: none;
+        margin-top: 10px;
+        box-shadow: 0 10px 20px -10px rgba(88, 101, 242, 0.5);
+    }
+
+    .discord-btn:hover {
+        transform: translateY(-2px);
+        background: #4752c4;
+    }
 </style>
 </head>
 <body>
@@ -142,16 +170,19 @@
 <div class="container">
     <h1>PEDE IDEIAS 💡</h1>
     <p class="subtitle">Transforme problemas em soluções. Mande sua ideia direto para nosso WhatsApp.</p>
+    <p class="info">Respondemos em até 24 horas.</p>
 
     <form id="contactForm">
         <input type="text" id="nome" placeholder="Seu nome" required>
-        <input type="email" id="email" placeholder="gmail" required>
+        <input type="email" id="email" placeholder="seuemail@gmail.com" required>
         <textarea id="problemas" placeholder="Qual a sua ideia ou o problema que precisa resolver?" required></textarea>
         <button type="submit">Enviar Mensagem</button>
     </form>
-<a href="https://discord.gg/JYs6xdN7M" target="_blank" class="discord-btn">
-    Entrar no Discord
-</a>
+
+    <a href="https://discord.gg/JYs6xdN7M" target="_blank" class="discord-btn">
+        Entrar no Discord
+    </a>
+
     <div class="footer-text">
         © 2026 Pede Ideias - Todos os direitos reservados.
     </div>
@@ -165,9 +196,15 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     const email = document.getElementById('email').value;
     const problemas = document.getElementById('problemas').value;
 
-    const mensagem = `*NOVA IDEIA RECEBIDA*%0A%0A*Nome:* ${nome}%0A*Email:* ${email}%0A*Ideia/Problema:* ${problemas}`;
-    
-    window.open(`https://wa.me/5511979872476?text=${mensagem}`, '_blank');
+    const mensagem = `NOVA IDEIA RECEBIDA
+
+Nome: ${nome}
+Email: ${email}
+Ideia/Problema: ${problemas}`;
+
+    const mensagemCodificada = encodeURIComponent(mensagem);
+
+    window.open(`https://wa.me/5511979872476?text=${mensagemCodificada}`, '_blank');
 });
 </script>
 
